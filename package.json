@@ -1,0 +1,17 @@
+{
+  "name": "pfizer-seed-sqlite",
+  "version": "1.0.0",
+  "description": "seed sqlite database with information rerieved from API call to appspace",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js"
+  },
+  "author": "Mabel Lawrence",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.23.0",
+    "bluebird": "^3.7.2",
+    "sqlite3": "^5.0.2"
+  }
+}
