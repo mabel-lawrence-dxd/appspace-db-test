@@ -32,6 +32,7 @@ const getListOfChannels = async (accessToken) => {
 }
 
 const getListOfItems = async(accessToken, channelId) => {
+    console.log('Getting items from channel id: ', channelId);
     try {
         const url = `https://api.cloud.appspace.com/api/v3/channelplaylist/${channelId}/items`;
         const itemsRes = await axios.get(url, {headers:{'Authorization': accessToken}});
@@ -92,5 +93,5 @@ async function doAllTheThings(){
     return allInfo;
 }
 
-const allTheThings = doAllTheThings();
+// const allTheThings = doAllTheThings();
 module.exports =  doAllTheThings;

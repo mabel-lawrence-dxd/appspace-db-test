@@ -47,6 +47,9 @@ class AppDAO {
           console.log(err);
           reject(err);
         } else {
+          console.log('>>>>>> in dao all with sql: ',sql)
+          // console.log('>>>>>> in dao all with params: ',params)
+          // console.log('>>>>>> in dao all with result: ',result)
           resolve(result);
         }
       });
