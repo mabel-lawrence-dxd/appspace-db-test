@@ -19,11 +19,9 @@ async function main() {
       .then(() => cardRepo.clearRows())
       .then(() => cardRepo.resetIncrement());
 
-    // Promise.all(
-    allInfo.forEach(async (card) => {
-      try {
+    await Promise.all(
+      allInfo.map(async (card)=>{
         const { employeeName, headshot, description, yearEarned, quote } = card;
-        console.log("EMPLOYEE NAME: ", employeeName);
         await cardRepo.create(
           employeeName,
           headshot,
@@ -31,21 +29,10 @@ async function main() {
           yearEarned,
           quote
         );
-      } catch (error) {
-        console.error(error);
-      }
-    });
-    // );
-
-    setTimeout(async ()=>{
-      const allEmployees = await cardRepo.getEmployees();
-      console.log('ALL EMPLOYEES \n',allEmployees);
-    },1)
-    // const art = await cardRepo.getByName('Art Gensler');
-    // console.log('Found Art Gensler: ',art);
-    // const results = await cardRepo.getEmployees();
-    // console.log('RESULTS \n',results);
-    // return cardRepo;
+      })
+    )
+    const results = await cardRepo.getEmployees();
+    console.log('RESULTS \n',results);
   } catch (error) {
     console.error(error);
   }
